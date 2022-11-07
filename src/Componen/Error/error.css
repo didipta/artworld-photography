@@ -1,0 +1,19 @@
+.error
+{
+    height:100vh;
+    overflow: hidden;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.error h1
+{
+    font-size:100px;
+}
+.error .icon
+{
+    font-size:100px;
+    color:red;
+}
