@@ -1,11 +1,13 @@
-import { Carousel } from 'react-daisyui'
+
 import './App.css';
+import Main from './Componen/Layout/Main';
 
 function App() {
+  
   return (
-    <div>
-     
-    </div>
+    <html data-theme="light">
+       <Main></Main>
+      </html>
   );
 }
 
