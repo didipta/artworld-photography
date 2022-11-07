@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-daisyui';
 import logo from "../../logo.png"
+import { AuthContext } from '../Context/Authprovider';
 import "./header.css"
 const Header = () => {
+    const { theme,setTheme}=useContext(AuthContext);
     return (
         <div>
             <div className="navbar bg-base-100">
@@ -56,6 +58,7 @@ const Header = () => {
   <div class="w-10 rounded-full mr-5">
     <img src="https://placeimg.com/192/192/people" />
   </div>
+  <input type="checkbox" class="toggle mt-2" onClick={(e)=>setTheme(e.target.checked)} />
 </div>
   </div>
 </div>
