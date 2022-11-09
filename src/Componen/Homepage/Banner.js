@@ -1,8 +1,8 @@
 import React from 'react';
-import img1 from "../img/img1.jpeg"
-import img2 from "../img/img2.jpeg"
-import img3 from "../img/img3.jpeg"
-import img4 from "../img/img4.jpeg"
+import img1 from "../img/img12.jpg"
+import img2 from "../img/img11.jpg"
+import img3 from "../img/img10.jpg"
+import img4 from "../img/img13.jpg"
 const Banner = () => {
     return (
         <div>
