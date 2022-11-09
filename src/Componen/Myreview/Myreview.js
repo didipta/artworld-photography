@@ -118,7 +118,7 @@ const Myreview = () => {
       <div class="modal">
         <div class="modal-box w-11/12 max-w-5xl">
         <label for="my-modal-5" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-        <h3 class="text-lg font-bold">Change Your Review?please Change!!{deleteid}</h3>
+        <h3 class="text-lg font-bold">Change Your Review?please Change!!</h3>
             <form onSubmit={handleStatusUpdate}>
             <textarea type="text" placeholder="Please Enter your valuable review..... " value={deletreview} name="review" class="input input-ghost w-full border-white m-3" onChange={(e)=>setDeletereview(e.target.value)} />
             <button className='btn'>Change</button>
