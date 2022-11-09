@@ -70,7 +70,7 @@ const Servicedetail = () => {
                         <form className=" m-auto hover:outline-none flex flex-col justify-center gap-5" onSubmit={handlesubmit}>
                             <h1 className="font-bold">Review Add Section</h1>
                         <input type="text" placeholder="Please Enter your valuable review..... " name="review" class="input input-ghost w-full border-white" />
-                        <button class="btn btn-outline btn-secondary w-2/12">Submit</button>
+                        <button class="btn btn-outline btn-secondary lg:w-2/12 sm:w-5/12">Submit</button>
                         </form>
                     </div>
                    <div className="p-4">
