@@ -16,10 +16,10 @@ const Header = () => {
       </label>
       <ul tabindex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 navbers">
         <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/">Home</NavLink></li>
-      <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="home">profile</NavLink></li>
       <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/service">Services</NavLink></li>
       {
-        user?<><li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="home">My reviews</NavLink></li>
+        user?<><li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/profile">profile</NavLink></li>
+        <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="home">My reviews</NavLink></li>
         <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="home">Add service</NavLink></li>
         <li><NavLink onClick={signoutall}>Logout</NavLink></li></>:
         <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/Loginpage">Login</NavLink></li>
@@ -44,10 +44,11 @@ const Header = () => {
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal p-0">
       <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/">Home</NavLink></li>
-      <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="home">profile</NavLink></li>
+      
       <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/service">Services</NavLink></li>
       {
-        user?<><li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="home">My reviews</NavLink></li>
+        user?<><li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/profile">profile</NavLink></li>
+        <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="home">My reviews</NavLink></li>
         <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="home">Add service</NavLink></li>
         <li><NavLink  onClick={signoutall}>Logout</NavLink></li></>:
         <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/Loginpage">Login</NavLink></li>

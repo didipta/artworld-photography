@@ -6,6 +6,7 @@ import Service from "../Service/Service";
 import Servicedetail from "../Service/Servicedetail";
 import Signin from "../Login&registation/Signin";
 import Registration from "../Login&registation/Registration";
+import Profile from "../profile/Profile";
 export const routes=createBrowserRouter([
     {
         path:"/",
@@ -21,7 +22,7 @@ export const routes=createBrowserRouter([
             },
             {
                 path:"services/:id",
-                loader:(({params})=>fetch(`http://localhost:5000/services/${params.id}`)),
+                loader:(({params})=>fetch(`https://server-side-beta.vercel.app/services/${params.id}`)),
                 element:<Servicedetail></Servicedetail>
             },
             {
@@ -31,6 +32,10 @@ export const routes=createBrowserRouter([
             {
                 path:"/registration",
                 element:<Registration></Registration>
+            },
+            {
+                path:"/profile",
+                element:<Profile></Profile>
             }
         ]
 

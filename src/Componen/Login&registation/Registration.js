@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/Authprovider';
+import useTitle from '../hook/Title';
 
 const Registration = () => {
     const {createuser,upadateuserprofile}=useContext(AuthContext);
@@ -88,6 +89,7 @@ const Registration = () => {
             setUserinfo({...userInfo,password:password})
         }
     }
+    useTitle("Registration Here");
     return (
         <div className="mb-10 p-8">
             

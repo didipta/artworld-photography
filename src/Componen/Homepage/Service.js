@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Service = ({show}) => {
     const [service,setService]=useState([]);
     useEffect(()=>{
-        fetch(`http://localhost:5000/services?size=${show}`)
+        fetch(`https://server-side-beta.vercel.app/services?size=${show}`)
         .then(res=>res.json())
         .then(res=>setService(res))
     },[show])
