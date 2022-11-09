@@ -7,6 +7,7 @@ import Servicedetail from "../Service/Servicedetail";
 import Signin from "../Login&registation/Signin";
 import Registration from "../Login&registation/Registration";
 import Profile from "../profile/Profile";
+import Privetrouter from "./Privetrouter";
 export const routes=createBrowserRouter([
     {
         path:"/",
@@ -35,7 +36,7 @@ export const routes=createBrowserRouter([
             },
             {
                 path:"/profile",
-                element:<Profile></Profile>
+                element:<Privetrouter><Profile></Profile></Privetrouter>
             }
         ]
 
