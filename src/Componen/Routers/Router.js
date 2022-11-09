@@ -9,6 +9,7 @@ import Registration from "../Login&registation/Registration";
 import Profile from "../profile/Profile";
 import Privetrouter from "./Privetrouter";
 import Addservice from "../Add_service/Addservice";
+import Myreview from "../Myreview/Myreview";
 export const routes=createBrowserRouter([
     {
         path:"/",
@@ -42,6 +43,10 @@ export const routes=createBrowserRouter([
             {
                 path:"/Addservice",
                 element:<Privetrouter><Addservice></Addservice></Privetrouter>
+            },
+            {
+                path:"/Myreview",
+                element:<Privetrouter><Myreview></Myreview></Privetrouter>
             }
         ]
 

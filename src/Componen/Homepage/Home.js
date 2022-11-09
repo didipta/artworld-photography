@@ -32,7 +32,7 @@ const Home = () => {
             </div>
             </div>
             </div>
-                <div className="mt-7 lg:w-9/12 lg:m-auto m-3">
+            <div className="mt-7 lg:w-9/12 lg:m-auto m-5">
             <div className="card bg-base-100 shadow-xl lg:flex-row md:flex-row sm:flex-col">
             <figure><img src={img6} alt="Movie"/></figure>
             <div className="card-body lg:w-10/12 sm:w-full">
@@ -44,6 +44,8 @@ const Home = () => {
             </div>
             </div>
             </div>
+            
+            
         </div>
     );
 };

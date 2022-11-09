@@ -18,7 +18,7 @@ const Header = () => {
       <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/service">Services</NavLink></li>
       {
         user?<><li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/profile">profile</NavLink></li>
-        <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="home">My reviews</NavLink></li>
+        <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/Myreview">My reviews</NavLink></li>
         <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/Addservice">Add service</NavLink></li>
         <li><NavLink onClick={signoutall}>Logout</NavLink></li></>:
         <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/Loginpage">Login</NavLink></li>
@@ -47,7 +47,7 @@ const Header = () => {
       <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/service">Services</NavLink></li>
       {
         user?<><li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/profile">profile</NavLink></li>
-        <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="home">My reviews</NavLink></li>
+        <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/Myreview">My reviews</NavLink></li>
         <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/Addservice">Add service</NavLink></li>
         <li><NavLink  onClick={signoutall}>Logout</NavLink></li></>:
         <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/Loginpage">Login</NavLink></li>

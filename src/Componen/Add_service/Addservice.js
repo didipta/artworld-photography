@@ -37,12 +37,12 @@ const Addservice = () => {
             
         <form className="flex justify-center flex-col gap-5 shadow-lg shadow-cyan-500/50 items-center m-auto lg:w-5/12 sm:w-full p-10" onSubmit={handlesubmit}>
         <h1 className="text-xl font-bold mb-5">New Service Add</h1>
-        <input type="text" placeholder="Enter service Name" onBlur={handleInputBlur} name="name" class="input input-bordered input-secondary w-full max-w-xs" required/>
-        <input type="url" placeholder="Enter service Photo Url" onBlur={handleInputBlur} name="img" class="input input-bordered input-secondary w-full max-w-xs" required />
-        <input type="text" placeholder="Enter Event number" onBlur={handleInputBlur} name="Event" class="input input-bordered input-secondary w-full max-w-xs" required />
-        <input type="text" placeholder="Enter the amount" onBlur={handleInputBlur} name="price" class="input input-bordered input-secondary w-full max-w-xs" required/>
-        <textarea class="textarea textarea-secondary w-80" onBlur={handleInputBlur} placeholder="Enter the detail" name="detail"></textarea>
-        <button class="btn bg-pink-600 border-none">Save</button>
+        <input type="text" placeholder="Enter service Name" onBlur={handleInputBlur} name="name" className="input input-bordered input-secondary w-full max-w-xs" required/>
+        <input type="url" placeholder="Enter service Photo Url" onBlur={handleInputBlur} name="img" className="input input-bordered input-secondary w-full max-w-xs" required />
+        <input type="text" placeholder="Enter Event number" onBlur={handleInputBlur} name="Event" className="input input-bordered input-secondary w-full max-w-xs" required />
+        <input type="text" placeholder="Enter the amount" onBlur={handleInputBlur} name="price" className="input input-bordered input-secondary w-full max-w-xs" required/>
+        <textarea className="input input-bordered input-secondary w-full max-w-xs pt-2" onBlur={handleInputBlur} placeholder="Enter the detail" name="detail"></textarea>
+        <button className="btn bg-pink-600 border-none">Save</button>
       
         </form>
         <Toaster

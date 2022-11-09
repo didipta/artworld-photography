@@ -19,7 +19,8 @@ const Servicedetail = () => {
             email:user.email,
             img:user.photoURL,
             review,
-            Date:new Date().toLocaleTimeString()
+            Date:new Date().toLocaleTimeString(),
+            servicename:data.name
         }
         fetch("https://server-side-beta.vercel.app/review",{
             method:"post",
@@ -69,22 +70,25 @@ const Servicedetail = () => {
                     <div className="shadow-md shadow-black-500/50 p-10">
                         <form className=" m-auto hover:outline-none flex flex-col justify-center gap-5" onSubmit={handlesubmit}>
                             <h1 className="font-bold">Review Add Section</h1>
-                        <input type="text" placeholder="Please Enter your valuable review..... " name="review" class="input input-ghost w-full border-white" />
+                        <textarea type="text" placeholder="Please Enter your valuable review..... " name="review" class="input input-ghost w-full border-white" />
                         <button class="btn btn-outline btn-secondary lg:w-2/12 sm:w-5/12">Submit</button>
                         </form>
                     </div>
                    <div className="p-4">
-                    <h1 className="font-bold text-2xl">All Review </h1>
+                    {
+                        review.length!==0?<h1 className="font-bold lg:text-2xl sm:text-xl">All Review </h1>:<h1 className="font-bold lg:text-2xl sm:text-xl">No Review on this time</h1>
+                    }
+                    
                     {
                         review.map(rev=>
-                            <div class="flex flex-row items-center card bg-white gap-0 p-0 pl-4">
+                            <div class="flex flex-row items-center card  gap-0 p-0 pl-4">
                     <div class="avatar">
                     <div class="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                         <img src={rev.img} alt='' />
                     </div>
                     </div>
-                    <div class="card-body pl-3 gap-1">
-                        <h2 class="card-title">{rev.username}<span class="badge">{rev.Date}</span></h2>
+                    <div class="w-full card-body pl-3 gap-1">
+                        <h2 class="card-title">{rev.username}<span class="badge text-sm">{(rev.Date).split(" ")[0]}</span></h2>
                         <p>{rev.review}</p>
                     </div>
                     </div>
