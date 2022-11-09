@@ -6,6 +6,7 @@ const Myreview = () => {
     const {user}=useContext(AuthContext);
     const[review,setReview]=useState([]);
     const[deleteid,setDeleteid]=useState();
+    const[deletreview,setDeletereview]=useState();
     useTitle("My All Review");
     useEffect(()=>{
         fetch(`https://server-side-beta.vercel.app/reviewsbyemail?email=${user.email}`)
@@ -13,10 +14,12 @@ const Myreview = () => {
         .then(res=>{
             setReview(res);
         })
-    },[user])
+    },[user,review])
 
     const handelDelete=(id)=>
     {
+        
+        
         fetch(`https://server-side-beta.vercel.app/reviewedelete/${id}`, {
                 method: 'DELETE',
             })
@@ -28,6 +31,26 @@ const Myreview = () => {
                         setReview(remaining);
                     }
                 })
+    }
+    const handleStatusUpdate = (e) => {
+        e.preventDefault();
+        const form=e.target;
+        fetch(`https://server-side-beta.vercel.app/reviwedit/${deleteid}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({ review: e.target.review.value })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                  toast.success('Successfully Change the review!')
+                    form.reset();
+                    setReview(review);
+                }
+            })
     }
     return (
         <div>
@@ -76,7 +99,7 @@ const Myreview = () => {
         </td>
         <td>{rev.Date}</td>
         <th>
-          <button className="btn btn-ghost btn-xs">Edit</button>
+        <label for="my-modal-5" className="btn btn-ghost btn-xs" onClick={()=>{setDeletereview(rev.review);setDeleteid(rev._id)}}>Edit</label>
         </th>
       
       </tr>
@@ -91,7 +114,19 @@ const Myreview = () => {
             </div>
         </div>
         </div>
+        <input type="checkbox" id="my-modal-5" class="modal-toggle" />
+      <div class="modal">
+        <div class="modal-box w-11/12 max-w-5xl">
+        <label for="my-modal-5" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <h3 class="text-lg font-bold">Change Your Review?please Change!!{deleteid}</h3>
+            <form onSubmit={handleStatusUpdate}>
+            <textarea type="text" placeholder="Please Enter your valuable review..... " value={deletreview} name="review" class="input input-ghost w-full border-white m-3" onChange={(e)=>setDeletereview(e.target.value)} />
+            <button className='btn'>Change</button>
+            </form>
+          </div>
         </div>
+        </div>
+
                 </>
                 
       
