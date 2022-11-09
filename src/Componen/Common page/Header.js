@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-daisyui';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from "../../logo.png"
 import { AuthContext } from '../Context/Authprovider';
 import "./header.css"
@@ -27,7 +26,7 @@ const Header = () => {
       </ul>
     </div>
     
-    <Link className="btn btn-ghost normal-case text-sm">
+    <Link to="/" className="btn btn-ghost normal-case text-sm">
     <div class="flex items-center">
     <div class="w-10 rounded-full">
     <img src={logo} alt=" " />

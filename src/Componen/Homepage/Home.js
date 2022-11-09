@@ -17,7 +17,7 @@ const Home = () => {
                 </div>
                 <Service show={3}></Service>
                 <div className="text-center p-6">
-                <Link to="/service"><button className="btn btn-outline btn-info">Sce more</button></Link>
+                <Link to="/service"><button className="btn btn-outline btn-info">See more</button></Link>
                 </div>
             </div>
             <div className="m-6">
@@ -27,7 +27,7 @@ const Home = () => {
                 <h2 className="card-title">Wedding background design!</h2>
                 <p className="lg:w-9/12">Designing your wedding can feel a little overwhelming, especially when your venue is a blank slate. There are so many different decor elements that go into your special day and we know it can be hard to remember them all. That’s why we decided a checklist was in order to help you nail every detail. No matter what you choose to include or omit, this wedding decor checklist will help you stay on top of your wedding planning game.</p>
                 <div className="card-actions justify-end">
-                <button className="btn btn-primary">Sce More</button>
+                <button className="btn btn-primary">See More</button>
                 </div>
             </div>
             </div>

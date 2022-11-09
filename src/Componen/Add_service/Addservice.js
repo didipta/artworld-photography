@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-
+import useTitle from '../hook/Title';
+import toast, { Toaster } from 'react-hot-toast';
 const Addservice = () => {
     const [service,setService]=useState();
+    let message;
+    useTitle("Add service page")
     const handlesubmit=(e)=>
     {
         e.preventDefault();
@@ -17,6 +20,7 @@ const Addservice = () => {
         .then(res=>res.json())
         .then(data=>{
             form.reset();
+            toast.success('Successfully Added!')
             console.log(data);
         })
     }
@@ -41,6 +45,10 @@ const Addservice = () => {
         <button class="btn bg-pink-600 border-none">Save</button>
       
         </form>
+        <Toaster
+        position="top-center"
+        reverseOrder={false}
+        />
     </div>
     );
 };

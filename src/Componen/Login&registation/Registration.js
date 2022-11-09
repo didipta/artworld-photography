@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/Authprovider';
 import useTitle from '../hook/Title';
-
+import toast, { Toaster } from 'react-hot-toast';
 const Registration = () => {
     const {createuser,upadateuserprofile}=useContext(AuthContext);
     const [accept,setAccept]=useState(false);
@@ -37,11 +37,13 @@ const Registration = () => {
                 setErrorinfo({...errorinfo,genarel:"successfully registrated"});
                  form.reset();
                  heandelupdateprofile(name,url);
+                 toast.success('Successfully Added!')
                  navigator(from,{replace:true});
             })
         .catch(e=>
             {
                 setErrorinfo({...errorinfo,genarel:e});
+                toast.error("This didn't work.")
                 console.log(e);
             })
     }
@@ -109,6 +111,10 @@ const Registration = () => {
                 <h1 className="text-sm font-bold mb-5">Already have an account.Please <Link to="/Loginpage" className="text-sky-600">Login</Link> </h1>
             </div>
             </form>
+            <Toaster
+        position="top-center"
+        reverseOrder={false}
+        />
         </div>
     );
 };
