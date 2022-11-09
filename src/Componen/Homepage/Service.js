@@ -11,7 +11,7 @@ const Service = ({show}) => {
     const pages=Math.ceil(count/item)
     const [loading,setLoading]=useState(true);
     useEffect(()=>{
-        fetch(`http://localhost:5000/services?size=${show}&page=${page}&item=${item}`)
+        fetch(`https://server-side-beta.vercel.app/services?size=${show}&page=${page}&item=${item}`)
         .then(res=>res.json())
         .then(res=>{
             
@@ -66,7 +66,7 @@ const Service = ({show}) => {
         {
             show===3?<></>:
             <>
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center p-6">
             <div className="btn-group ">
               {
                 [...Array(pages).keys()].map(n=>
