@@ -7,11 +7,16 @@ const Privetrouter = ({children}) => {
     const location=useLocation();
     if(loading)
     {
-        return "Loading.....";
+        return <>
+        <div className="flex justify-center items-center">
+        <progress class="progress w-56"></progress>
+        </div>
+        
+        </>;
     }
     if(!user)
     {
-        return <Navigate to="/login" state={{from:location}} replace></Navigate>
+        return <Navigate to="/Loginpage" state={{from:location}} replace></Navigate>
     }
     return children;
 };

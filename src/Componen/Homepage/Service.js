@@ -5,11 +5,26 @@ import 'react-photo-view/dist/react-photo-view.css';
 import { Link } from 'react-router-dom';
 const Service = ({show}) => {
     const [service,setService]=useState([]);
+    const [loading,setLoading]=useState(true);
     useEffect(()=>{
         fetch(`https://server-side-beta.vercel.app/services?size=${show}`)
         .then(res=>res.json())
-        .then(res=>setService(res))
+        .then(res=>{
+            setService(res)
+            setLoading(false)
+        }
+            )
+         
     },[show])
+    if(loading)
+    {
+        return <>
+        <div className="flex justify-center items-center">
+        <progress class="progress w-56"></progress>
+        </div>
+        
+        </>;
+    }
     return (
         <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-6 p-10">
             {

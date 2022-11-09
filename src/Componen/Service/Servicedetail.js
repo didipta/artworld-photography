@@ -13,7 +13,7 @@ const Servicedetail = () => {
                 </div>
                 <div className="lg:w-6/12 sm:w-full ">
                 <h1 className="text-2xl font-bold mb-5">{data.name}</h1>
-                <p className="text-lg font-semibold mb-5 text-justify">{data.detail}</p>
+                <p className="text-lg font-normal mb-5 text-justify">{data.detail}</p>
                 <p className="text-2xl font-bold mb-5">{data.price}-৳ </p>
                 <div class="badge mb-5">{data.Event} Event</div>
                 <div className=" flex gap-5">
