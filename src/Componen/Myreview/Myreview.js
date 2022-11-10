@@ -3,25 +3,42 @@ import { AuthContext } from '../Context/Authprovider';
 import useTitle from '../hook/Title';
 import toast, { Toaster } from 'react-hot-toast';
 const Myreview = () => {
-    const {user}=useContext(AuthContext);
+    const {user,signoutall}=useContext(AuthContext);
     const[review,setReview]=useState([]);
     const[deleteid,setDeleteid]=useState();
     const[deletreview,setDeletereview]=useState();
+    const [loading,setLoading]=useState(true);
     useTitle("My All Review");
     useEffect(()=>{
-        fetch(`https://server-side-beta.vercel.app/reviewsbyemail?email=${user.email}`)
-        .then(res=>res.json())
+        fetch(`https://server-side-beta.vercel.app/reviewsbyemail?email=${user.email}`,{
+          headers: {
+            authorization: `Bearer ${localStorage.getItem('Artworld-token')}`
+          }
+        }
+        
+        )
         .then(res=>{
+          if (res.status === 401 || res.status === 403) {
+            return signoutall();
+        }
+         return res.json()
+        })
+        .then(res=>{
+           
             setReview(res);
+            setLoading(false)
         })
     },[user,review])
-
+  //Review delete function
     const handelDelete=(id)=>
     {
         
         
         fetch(`https://server-side-beta.vercel.app/reviewedelete/${id}`, {
                 method: 'DELETE',
+                headers: {
+                  authorization: `Bearer ${localStorage.getItem('Artworld-token')}`
+              }
             })
                 .then(res => res.json())
                 .then(data => {
@@ -32,6 +49,7 @@ const Myreview = () => {
                     }
                 })
     }
+    // review update function
     const handleStatusUpdate = (e) => {
         e.preventDefault();
         const form=e.target;
@@ -39,6 +57,7 @@ const Myreview = () => {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('Artworld-token')}`
             },
             body: JSON.stringify({ review: e.target.review.value })
         })
@@ -52,8 +71,22 @@ const Myreview = () => {
                 }
             })
     }
+    if(loading)
+    {
+        return <>
+        <div className="flex justify-center items-center">
+        <progress className="progress w-56"></progress>
+        </div>
+        
+        </>;
+    }
     return (
         <div>
+          <div className="text-xl p-5 font-bold text-center">
+            {
+              review.length!==0?<h1>All reviews</h1>:<h1>No reviews were added</h1>
+            }
+          </div>
             <div className="overflow-x-auto w-full">
   <table className="table w-full">
     <thead>
@@ -118,7 +151,7 @@ const Myreview = () => {
       <div class="modal">
         <div class="modal-box w-11/12 max-w-5xl">
         <label for="my-modal-5" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-        <h3 class="text-lg font-bold">Change Your Review?please Change!!</h3>
+        <h3 class="text-lg font-bold">Change Your Review!!</h3>
             <form onSubmit={handleStatusUpdate}>
             <textarea type="text" placeholder="Please Enter your valuable review..... " value={deletreview} name="review" class="input input-ghost w-full border-white m-3" onChange={(e)=>setDeletereview(e.target.value)} />
             <button className='btn'>Change</button>

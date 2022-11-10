@@ -20,6 +20,7 @@ const Authprovider = ({children}) => {
         setLoading(true);
         signOut(auth)
         .then(res => {
+            localStorage.removeItem('Artworld-token');
             setUser(null);
         })
         .catch(error=>{

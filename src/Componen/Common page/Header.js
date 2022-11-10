@@ -23,6 +23,7 @@ const Header = () => {
         <li><NavLink onClick={signoutall}>Logout</NavLink></li></>:
         <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/Loginpage">Login</NavLink></li>
       }
+       <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/Blogs">Blogs</NavLink></li>
       </ul>
     </div>
     
@@ -43,6 +44,7 @@ const Header = () => {
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal p-0">
       <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/">Home</NavLink></li>
+     
       
       <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/service">Services</NavLink></li>
       {
@@ -53,7 +55,7 @@ const Header = () => {
         <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/Loginpage">Login</NavLink></li>
       }
       
-      
+      <li><NavLink className={({isActive})=>isActive? 'text-black-800 font-bold' : undefined} to="/Blogs">Blogs</NavLink></li>
       
       
       

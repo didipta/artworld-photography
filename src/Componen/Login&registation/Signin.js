@@ -13,12 +13,31 @@ const Signin = () => {
     const location=useLocation();
     const from=location.state?.from?.pathname || '/';
     const navigator=useNavigate();
+
+    //google sing in
     const handelgooglesignin=()=>
     {
       googlelogin(googleprovider)
       .then(res=>{
         const user=res.user;
-        navigator(from,{replace:true});
+        const currentUser = {
+            email: user.email
+        }
+
+         fetch('https://server-side-beta.vercel.app/jwt', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(currentUser)
+        })
+            .then(res => res.json())
+            .then(data => {
+               
+                // local storage to store jwt token
+                localStorage.setItem('Artworld-token', data.token);
+                navigator(from,{replace:true});
+            });
       })
       .catch(err=>
         {
@@ -31,12 +50,34 @@ const Signin = () => {
         const form=e.target;
         const email=e.target.email.value;
         const password=e.target.password.value;
-   
+      ///email/password login
         siginwithemailpassword(email,password)
         .then(res=>
             {
                  form.reset();
-                 navigator(from,{replace:true});
+
+                 const user = res.user;
+
+
+                const currentUser = {
+                    email: user.email
+                }
+
+                 fetch('https://server-side-beta.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                       
+                        // local storage to store jwt token
+                        localStorage.setItem('Artworld-token', data.token);
+                        navigator(from,{replace:true});
+                    });
+                 
                 
             })
         .catch(e=>
