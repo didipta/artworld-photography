@@ -64,9 +64,10 @@ const Servicedetail = () => {
             </section>
 
             <section>
-                {
-                   user?<>
+                
                    <div className="flex  flex-col p-10 w-full  gap-10">
+                   {
+                   user?<>
                     <div className="shadow-md shadow-black-500/50 p-10">
                         <form className=" m-auto hover:outline-none flex flex-col justify-center gap-5" onSubmit={handlesubmit}>
                             <h1 className="font-bold">Review Add Section</h1>
@@ -74,6 +75,14 @@ const Servicedetail = () => {
                         <button class="btn btn-outline btn-secondary lg:w-2/12 sm:w-5/12">Submit</button>
                         </form>
                     </div>
+                    </>:<>
+                   <div className="flex justify-center items-center text-xl font-semibold p-7">
+                    <h1>
+                        !!!Please Login to add a review.<Link to="/Loginpage" className="text-cyan-700">Login....</Link>
+                    </h1>
+                   </div>
+                   </>
+                }
                    <div className="p-4">
                     {
                         review.length!==0?<h1 className="font-bold lg:text-2xl sm:text-xl">All Review </h1>:<h1 className="font-bold lg:text-2xl sm:text-xl">No Review on this time</h1>
@@ -101,14 +110,7 @@ const Servicedetail = () => {
                     </div>
                     
                    
-                   </>:<>
-                   <div className="flex justify-center items-center text-xl font-semibold p-7">
-                    <h1>
-                        !!!Please Login to add a review.<Link to="/Loginpage" className="text-cyan-700">Login....</Link>
-                    </h1>
-                   </div>
-                   </>
-                }
+               
             </section>
             <Toaster
         position="top-center"
